@@ -1,19 +1,15 @@
 from pymongo import MongoClient
 
-from mongoengine import connect
-from mongoengine import Document, ListField, StringField, URLField
+# client = MongoClient("localhost", 27017)
+client = MongoClient("mongodb://localhost:27017/")
+
+db = client.bot
+# db = client["bot"]
 
 
-
-with MongoClient("mongodb://192.168.0.248:27017") as cliente:
-    db = cliente.localbitcoin
-    p2pSellers = db.p2pSellers
-
-    print(p2pSellers.find_one({"username":"Crispin236"}))
-
-    # find all
-    for seller in p2pSellers.find():
-        print(seller)
+# operaciones = db.operacioens
+operaciones = db["operaciones"]
 
 
-with connect(db="localbitcoin", host="192.168.0.248", port=27017) as conexion:
+for r in operaciones.find():
+    print(r)
