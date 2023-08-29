@@ -15,13 +15,31 @@ MongoDB
 
 # Installing and Running MongoDB
 
-Es importante que podemos utilizar esta database como un servicio cloud desde su version [Atlas](https://www.mongodb.com/es/atlas) o descargando la [version comunidad](https://www.mongodb.com/try/download/community) la instalacion predeterminada es como servicio e incluye al cliente GUI compass.
+Podemos utilizar esta database como un servicio cloud desde su version [Atlas](https://www.mongodb.com/es/atlas) o descargando la [version comunidad](https://www.mongodb.com/try/download/community) donde la podemos instalar de manera predeterminada como servicio. Tambien trae al cliente GUI Compass.
 
 El servidor queda corriendo en mongod://127.0.0.1:27017
 
+Instalacion [tutorial](https://docs.mongodb.com/manual/installation/#mongodb-community-edition-installation-tutorials
+)
+
+# Configuracion de MongoDB
+
+Luego de que mongo quedo instalado como un servicio podemos configurarlo desde su [archivo de configuracion](https://www.mongodb.com/docs/manual/reference/configuration-options/#std-label-configuration-options) ubicado en <install directory>\bin\mongod.cfg.
+
+## Configuracion IP.
+
+Por cuestionos de seguridad, la instalacion por defecto restringe para que mongo quede publicado unicamente en localhost. Claro que esto lo podemos cambiar haciendo un nuevo bind
+
+```
+# network interfaces
+net:
+  port: 27017
+  bindIp: 127.0.0.1, local IP
+```
+
+y no olvidar abrir el puerto 27017 para las conexiones entrantes.
 	
-instalacion tutoriales:
-https://docs.mongodb.com/manual/installation/#mongodb-community-edition-installation-tutorials
+
 
 	
 Say you’re planning to use MongoDB to store your tutorials and articles. In that case, you can following command:
